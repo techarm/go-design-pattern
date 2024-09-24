@@ -25,6 +25,8 @@ func (app *application) render(w http.ResponseWriter, name string, td *templateD
 		newTemplate, err := app.buildTemplateFromDisk(name)
 		if err != nil {
 			log.Println("error building template: ", err)
+			http.Error(w, "page not found", http.StatusNotFound)
+			return
 		}
 		log.Println("building template from disk")
 		tmpl = newTemplate
