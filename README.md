@@ -15,3 +15,8 @@
 - Allows ue to change database with ease
 - Makes writing unit test much simpler
 - An intermediary layer between an application's business logic and data storage
+
+## Singleton Pattern
+
+- Allow ue to restrict the instantiation of something to a singular instance
+- This pattern is useful when exactly one object is needed to coordinate actions across a system

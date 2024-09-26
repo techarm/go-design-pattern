@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"go-breeders/models"
+	"go-breeders/config"
 	"html/template"
 	"log"
 	"net/http"
@@ -15,7 +15,7 @@ const port = ":4000"
 type application struct {
 	templateMap map[string]*template.Template
 	config      appConfig
-	Models      *models.Models
+	App         *config.Application
 }
 
 type appConfig struct {
@@ -38,7 +38,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	app.Models = models.New(db)
+	app.App = config.New(db)
 
 	srv := http.Server{
 		Addr:              port,
