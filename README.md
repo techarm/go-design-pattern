@@ -20,3 +20,7 @@
 
 - Allow ue to restrict the instantiation of something to a singular instance
 - This pattern is useful when exactly one object is needed to coordinate actions across a system
+
+## Builder Pattern
+
+- Allow ue to chain methods
