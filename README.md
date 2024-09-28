@@ -31,3 +31,8 @@
 - Example: a handler gets information from something, and expects it to be in JSON format
 - The data comes from two different remtoe sources. One is in JOSN, and one is in XML.
 - The adapter allows us to get the XML data and convert it into waht the handler expects.
+
+## Decorator Pattern
+
+- Take an object, and decorate it with additional information
+- Incredibly simple in Go (Embed a struct)

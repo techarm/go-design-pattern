@@ -18,6 +18,8 @@ func (app *application) routes() http.Handler {
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
 
 	mux.Get("/", app.ShowHome)
+	mux.Get("/dog-of-month", app.DogOfMonth)
+
 	mux.Get("/{page}", app.ShowPage)
 
 	// factory routes
