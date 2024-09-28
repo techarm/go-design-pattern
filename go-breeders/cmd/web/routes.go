@@ -36,5 +36,7 @@ func (app *application) routes() http.Handler {
 	// get data from database
 	mux.Get("/api/dog-breeds", app.GetAllDogBreedsJSON)
 
+	mux.Get("/api/animal-from-abstract-factory/{species}/{breed}", app.AnimalFromAbstractFactory)
+
 	return mux
 }

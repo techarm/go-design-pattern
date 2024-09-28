@@ -12,7 +12,7 @@
                 <a href="javascript:void(0);" id="cat-factory-btn" class="btn btn-outline-secondary">Get a cat from factory</a>
             </div>
             <div class="mt-2" style="outline: 1px solid #bbb; padding: 1em;">
-                <pre id="factory-output" style="margin:0;"><span>Nothing received yet...</span></pre>
+                <pre id="factory-output" style="margin:0;"><span class="text-muted">Nothing received yet...</span></pre>
             </div>
 
             <hr class="mt-4">
@@ -22,7 +22,7 @@
                 <a href="javascript:void(0);" id="cat-abstract-btn" class="btn btn-outline-secondary">Get a cat from abstract factory</a>
             </div>
             <div class="mt-2" style="outline: 1px solid #bbb; padding: 1em;">
-                <pre id="abstract-factory-output" style="margin:0;"><span>Nothing received yet...</span></pre>
+                <pre id="abstract-factory-output" style="margin:0;"><span class="text-muted">Nothing received yet...</span></pre>
             </div>
 
             <hr class="mt-4">
@@ -32,7 +32,34 @@
                 <a href="javascript:void(0);" id="cat-builder-btn" class="btn btn-outline-secondary">Get a cat from builder</a>
             </div>
             <div class="mt-2" style="outline: 1px solid #bbb; padding: 1em;">
-                <pre id="builder-output" style="margin:0;"><span>Nothing received yet...</span></pre>
+                <pre id="builder-output" style="margin:0;"><span class="text-muted">Nothing received yet...</span></pre>
+            </div>
+
+            <hr class="mt-4">
+            <h3 class="mt-3">Abstract Factory II</h3>
+            <form>
+                <div class="row mb-3">
+                    <div class="col-3">
+                        <label for="species" class="col-sm-2 col-form-label">Species</label>
+                        <select name="species" id="species" class="form-select">
+                            <option>Choose...</option>
+                            <option value="cat">Cat</option>
+                            <option value="dog">Dog</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="breed" class="col-sm-2 col-form-label">Breed</label>
+                        <input type="text" id="breed" class="form-control">
+                    </div>
+                </div>
+                <a href="javascript:void(0);" id="abstract-factory2-btn" class="btn btn-outline-secondary">
+                    Get from abstract factory
+                </a>
+            </form>
+            <div class="mt-3" style="outline: 1px solid #bbb; padding: 1em;">
+                <pre id="abstract-factory2-output" style="margin:0;"><span class="text-muted">Nothing received yet...</span></pre>
             </div>
         </div>
     </div>
@@ -52,6 +79,9 @@ let abstractFactoryOutput = document.getElementById("abstract-factory-output");
 let dogBuilderButton = document.getElementById("dog-builder-btn");
 let catBuilderButton = document.getElementById("cat-builder-btn");
 let builderOutput = document.getElementById("builder-output");
+
+let abstractFactory2Button = document.getElementById("abstract-factory2-btn");
+let abstractFactory2Output = document.getElementById("abstract-factory2-output");
 
 document.addEventListener("DOMContentLoaded", function() {
     dogFactoryButton.addEventListener("click", function() {
@@ -122,6 +152,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 builderOutput.innerHTML = data.error;
             } else {
                 builderOutput.innerHTML = JSON.stringify(data, undefined, 4);
+            }
+        })
+    });
+
+    abstractFactory2Button.addEventListener("click", function() {
+        let species = document.getElementById("species").value; 
+        let breed = document.getElementById("breed").value; 
+        fetch(`/api/animal-from-abstract-factory/${species}/${breed}`, {method: 'GET'})
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.error) {
+                abstractFactory2Output.innerHTML = data.error;
+            } else {
+                abstractFactory2Output.innerHTML = JSON.stringify(data, undefined, 4);
             }
         })
     });
