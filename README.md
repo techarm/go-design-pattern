@@ -12,15 +12,22 @@
 
 ## Repository Pattern
 
-- Allows ue to change database with ease
+- Allows us to change database with ease
 - Makes writing unit test much simpler
 - An intermediary layer between an application's business logic and data storage
 
 ## Singleton Pattern
 
-- Allow ue to restrict the instantiation of something to a singular instance
+- Allow us to restrict the instantiation of something to a singular instance
 - This pattern is useful when exactly one object is needed to coordinate actions across a system
 
 ## Builder Pattern
 
-- Allow ue to chain methods
+- Allow us to chain methods
+
+## Adapter Pattern
+
+- Allows us to have different programs (or parts of the same program) to communicate with one another
+- Example: a handler gets information from something, and expects it to be in JSON format
+- The data comes from two different remtoe sources. One is in JOSN, and one is in XML.
+- The adapter allows us to get the XML data and convert it into waht the handler expects.
